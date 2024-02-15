@@ -69,15 +69,6 @@ public class Run {
             b1.altaItem(titulo, item);
         }
 
-        System.out.println("Fondo de la biblioteca:");
-        for (Map.Entry<String, Item> entry : b1.getFondo().entrySet()) {
-            String titulo = entry.getKey();
-            Item item = entry.getValue();
-            System.out.println("Título: " + titulo);
-            System.out.println("Detalles: " + item); // Aquí se utilizará el método toString() de la clase Item
-            System.out.println("------------------------------------");
-        }
-
         ArrayList<Usuario> listaUsuarios = new ArrayList<>();
 
         // Crear 5 usuarios con Faker
@@ -98,9 +89,6 @@ public class Run {
             System.out.println(usuario);
         }
         System.out.println();
-
-        Usuario primerUsuario = listaUsuarios.get(0);
-        Item primerItem = items.get(0);
 
         System.out.println(listaUsuarios.get(0).tomarItemPrestado(items.get(0)));
         System.out.println(listaUsuarios.get(0).tomarItemPrestado(items.get(0)));
