@@ -26,7 +26,7 @@ public class Run {
 
         Faker f = new Faker();
 
-        Biblioteca biblioteca = new Biblioteca(10, "Biblioteca Central", "Calle Principal 123", 0, 100, fondo);
+        Biblioteca b1 = new Biblioteca(10, "Biblioteca Central", "Calle Principal 123", 0, 100, fondo);
 
         // Crear una lista para almacenar los items
         ArrayList<Item> items = new ArrayList<>();
@@ -63,11 +63,14 @@ public class Run {
         }
 
         for (Item item : items) {
-            fondo.put(item.getTitulo(), item);
+            // Generar un código único para cada item (usando el título, por ejemplo)
+            String titulo = item.getTitulo();
+            // Agregar el item a la biblioteca usando el título como clave
+            b1.altaItem(titulo, item);
         }
 
         System.out.println("Fondo de la biblioteca:");
-        for (Map.Entry<String, Item> entry : fondo.entrySet()) {
+        for (Map.Entry<String, Item> entry : b1.getFondo().entrySet()) {
             String titulo = entry.getKey();
             Item item = entry.getValue();
             System.out.println("Título: " + titulo);
@@ -94,7 +97,25 @@ public class Run {
         for (Usuario usuario : listaUsuarios) {
             System.out.println(usuario);
         }
-        
+        System.out.println();
+
+        Usuario primerUsuario = listaUsuarios.get(0);
+        Item primerItem = items.get(0);
+
+        System.out.println(listaUsuarios.get(0).tomarItemPrestado(items.get(0)));
+        System.out.println(listaUsuarios.get(0).tomarItemPrestado(items.get(0)));
+        System.out.println(listaUsuarios.get(0).tomarItemPrestado(items.get(1)));
+        System.out.println(listaUsuarios.get(0).tomarItemPrestado(items.get(2)));
+        System.out.println(listaUsuarios.get(0).tomarItemPrestado(items.get(3)));
+        System.out.println(listaUsuarios.get(0).tomarItemPrestado(items.get(4)));
+        System.out.println(listaUsuarios.get(0).tomarItemPrestado(items.get(5)));
+
+        System.out.println(listaUsuarios.get(0).devolverItem(items.get(0)));
+
+        System.out.println(b1.listadoDeLibros());
+        System.out.println(b1.listadoDeRevistas());
+        System.out.println(b1.listadoFondo());
+        System.out.println(b1.listadoPorTema("Biography/Autobiography"));
 
     }
 }

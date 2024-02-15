@@ -29,8 +29,11 @@ public class Biblioteca {
         this.fondo = new HashMap<String,Item>();
     }
 
-    public String altaItem(String codigo, Item it) {
+    public Map<String, Item> getFondo() {
+        return fondo;
+    }
 
+    public String altaItem(String codigo, Item it) {
         fondo.put(codigo, it);
         return "Añadido correcamente";
     }
@@ -81,4 +84,6 @@ public class Biblioteca {
         }
         return sb.toString();
     }
+    
+    
 }
