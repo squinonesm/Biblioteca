@@ -27,6 +27,10 @@ public class Item {
         this.tematica = tematica;
     }
 
+    public String getTematica() {
+        return tematica;
+    }
+
     public void setEstaPrestado(boolean estaPrestado) {
         this.estaPrestado = estaPrestado;
     }
