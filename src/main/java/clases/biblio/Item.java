@@ -26,7 +26,13 @@ public class Item {
         this.estaPrestado = estaPrestado;
         this.tematica = tematica;
     }
-    
-    
 
+    public void setEstaPrestado(boolean estaPrestado) {
+        this.estaPrestado = estaPrestado;
+    }
+
+    public boolean getEstaPrestado() {
+        return estaPrestado;
+    }
+    
 }
