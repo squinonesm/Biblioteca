@@ -23,8 +23,8 @@ public class Usuario {
         this.DNI = DNI;
         this.numSocio = numSocio;
         this.tlf = tlf;
-        this.librosPrestados = new ArrayList<Item>();
-        this.estaSancionado = false;
+        this.librosPrestados = librosPrestados; // Asignar la lista proporcionada
+        this.estaSancionado = sancionado; // Usar el valor proporcionado
     }
 
     public String tomarItemPrestado(Item it) {
@@ -56,6 +56,18 @@ public class Usuario {
         }
 
         return aux.toString();
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{"
+                + "nombreCompleto='" + nombreCompleto + '\''
+                + ", DNI='" + DNI + '\''
+                + ", numSocio=" + numSocio
+                + ", tlf=" + tlf
+                + ", librosPrestados=" + librosPrestados
+                + ", estaSancionado=" + estaSancionado
+                + '}';
     }
 
 }

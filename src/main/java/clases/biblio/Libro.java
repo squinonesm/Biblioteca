@@ -19,4 +19,19 @@ public class Libro extends Item {
         this.autorLibro = autorLibro;
         this.ISBN = ISBN;
     }
+
+    @Override
+    public String toString() {
+        return "Libro{"
+                + "titulo='" + titulo + '\''
+                + ", autor='" + autorLibro + '\''
+                + ", ISBN='" + ISBN + '\''
+                + ", numeroPaginas=" + numeroPaginas
+                + ", editorial='" + editorial + '\''
+                + ", fecha=" + fecha.getTime().toString()
+                + ", estaPrestado=" + estaPrestado
+                + ", tematica='" + tematica + '\''
+                + '}';
+    }
+
 }

@@ -1,5 +1,6 @@
 package clases.biblio;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -25,7 +26,7 @@ public class Biblioteca {
         this.direccion = direccion;
         this.numeroDeItems = numeroDeItems;
         this.numeroDePlazas = numeroDePlazas;
-        this.fondo = fondo;
+        this.fondo = new HashMap<String,Item>();
     }
 
     public String altaItem(String codigo, Item it) {

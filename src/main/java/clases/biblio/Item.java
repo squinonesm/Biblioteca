@@ -27,6 +27,11 @@ public class Item {
         this.tematica = tematica;
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
+    
+
     public String getTematica() {
         return tematica;
     }

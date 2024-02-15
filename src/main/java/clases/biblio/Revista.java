@@ -9,8 +9,8 @@ import java.util.GregorianCalendar;
  * @version 0.1
  *
  */
-public class Revista extends Item{
-    
+public class Revista extends Item {
+
     private String numRevista;
     private String tipoAdjunto;
 
@@ -19,4 +19,19 @@ public class Revista extends Item{
         this.numRevista = numRevista;
         this.tipoAdjunto = tipoAdjunto;
     }
+
+    @Override
+    public String toString() {
+        return "Revista{"
+                + "titulo='" + titulo + '\''
+                + ", número='" + numRevista + '\''
+                + ", adjunto='" + tipoAdjunto + '\''
+                + ", numeroPaginas=" + numeroPaginas
+                + ", editorial='" + editorial + '\''
+                + ", fecha=" + fecha.getTime().toString()
+                + ", estaPrestado=" + estaPrestado
+                + ", tematica='" + tematica + '\''
+                + '}';
+    }
+
 }
