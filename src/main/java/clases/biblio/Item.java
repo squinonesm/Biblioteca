@@ -4,11 +4,11 @@ import java.util.GregorianCalendar;
 /**
  *
  * @author Sergio Quiñones Majuelo
- * @date 14-02-2024
- * @version 0.1
+ * @date 19-02-2024
+ * @version 0.2
  *
  */
-public class Item {
+public abstract class Item {
     
     protected String titulo;
     protected short numeroPaginas;

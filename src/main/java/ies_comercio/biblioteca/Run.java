@@ -10,23 +10,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.GregorianCalendar;
+import java.util.TreeMap;
 
 /**
  *
  * @author Sergio Quiñones Majuelo
- * @date 14-02-2024
- * @version 0.1
+ * @date 19-02-2024
+ * @version 0.2
  *
  */
 public class Run {
 
     public static void main(String[] args) {
 
-        Map<String, Item> fondo = new HashMap<>();
+        Map<Integer, Item> fondo = new TreeMap<>();
 
         Faker f = new Faker();
 
-        Biblioteca b1 = new Biblioteca(10, "Biblioteca Central", "Calle Principal 123", 0, 100, fondo);
+        Biblioteca b1 = new Biblioteca(10, "Biblioteca Central", "Calle Principal 123", 0, 100,fondo);
 
         // Crear una lista para almacenar los items
         ArrayList<Item> items = new ArrayList<>();
@@ -63,10 +64,8 @@ public class Run {
         }
 
         for (Item item : items) {
-            // Generar un código único para cada item (usando el título, por ejemplo)
-            String titulo = item.getTitulo();
             // Agregar el item a la biblioteca usando el título como clave
-            b1.altaItem(titulo, item);
+            b1.altaItem(item);
         }
 
         ArrayList<Usuario> listaUsuarios = new ArrayList<>();
@@ -81,15 +80,18 @@ public class Run {
                     new ArrayList<>(), // Lista de libros prestados inicialmente vacía
                     false // Inicialmente no está sancionado      
             );
+            //Los voy guardando en una lista
             listaUsuarios.add(usuario);
         }
-
+        
+        
         System.out.println("Usuarios creados:");
         for (Usuario usuario : listaUsuarios) {
             System.out.println(usuario);
         }
         System.out.println();
-
+        
+        //Testeos rancios
         System.out.println(listaUsuarios.get(0).tomarItemPrestado(items.get(0)));
         System.out.println(listaUsuarios.get(0).tomarItemPrestado(items.get(0)));
         System.out.println(listaUsuarios.get(0).tomarItemPrestado(items.get(1)));
@@ -97,13 +99,18 @@ public class Run {
         System.out.println(listaUsuarios.get(0).tomarItemPrestado(items.get(3)));
         System.out.println(listaUsuarios.get(0).tomarItemPrestado(items.get(4)));
         System.out.println(listaUsuarios.get(0).tomarItemPrestado(items.get(5)));
+        System.out.println(listaUsuarios.get(0).listadoDeItems());
 
         System.out.println(listaUsuarios.get(0).devolverItem(items.get(0)));
+        System.out.println(listaUsuarios.get(0).listadoDeItems());
+        System.out.println(listaUsuarios.get(0).toString());
 
         System.out.println(b1.listadoDeLibros());
         System.out.println(b1.listadoDeRevistas());
         System.out.println(b1.listadoFondo());
+        //Como el tema es aleatorio con faker he puesto uno que sale y con suerte vemos
         System.out.println(b1.listadoPorTema("Biography/Autobiography"));
-
+        
+        System.out.println(b1);
     }
 }

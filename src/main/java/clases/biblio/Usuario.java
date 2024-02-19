@@ -5,8 +5,8 @@ import java.util.ArrayList;
 /**
  *
  * @author Sergio Quiñones Majuelo
- * @date 14-02-2024
- * @version 0.1
+ * @date 19-02-2024
+ * @version 0.2
  *
  */
 public class Usuario {
@@ -18,6 +18,16 @@ public class Usuario {
     private ArrayList<Item> librosPrestados;
     private boolean estaSancionado;
 
+    /**
+     * Constructor de la clase Usuario.
+     *
+     * @param nombreCompleto Nombre completo del usuario.
+     * @param DNI Número de documento de identidad del usuario.
+     * @param numSocio Número de socio del usuario.
+     * @param tlf Número de teléfono del usuario.
+     * @param librosPrestados Lista de libros prestados al usuario.
+     * @param sancionado Indica si el usuario está sancionado.
+     */
     public Usuario(String nombreCompleto, String DNI, int numSocio, int tlf, ArrayList<Item> librosPrestados, boolean sancionado) {
         this.nombreCompleto = nombreCompleto;
         this.DNI = DNI;
@@ -27,6 +37,12 @@ public class Usuario {
         this.estaSancionado = sancionado; // Usar el valor proporcionado
     }
 
+    /**
+     * Método para tomar un item prestado.
+     *
+     * @param it Item que se va a tomar prestado.
+     * @return Mensaje indicando si se pudo tomar prestado el item.
+     */
     public String tomarItemPrestado(Item it) {
 
         if (librosPrestados.size() >= 5) {
@@ -40,6 +56,12 @@ public class Usuario {
         }
     }
 
+    /**
+     * Método para devolver un item prestado.
+     *
+     * @param it Item que se va a devolver.
+     * @return Mensaje indicando si se pudo devolver el item.
+     */
     public String devolverItem(Item it) {
 
         librosPrestados.remove(it);
@@ -47,6 +69,11 @@ public class Usuario {
         return "Libro devuelto correctamente";
     }
 
+    /**
+     * Método para obtener un listado de los items prestados.
+     *
+     * @return Listado de los items prestados al usuario.
+     */
     public String listadoDeItems() {
         StringBuilder aux = new StringBuilder();
         aux.append("Listado de libros prestados a ").append(nombreCompleto).append(":\n");
@@ -60,13 +87,19 @@ public class Usuario {
 
     @Override
     public String toString() {
+        StringBuilder librosPrestadosStr = new StringBuilder();
+        librosPrestadosStr.append("Libros Prestados:\n");
+        for (Item item : librosPrestados) {
+            librosPrestadosStr.append(item.toString()).append("\n");
+        }
+
         return "Usuario{"
                 + "nombreCompleto='" + nombreCompleto + '\''
                 + ", DNI='" + DNI + '\''
                 + ", numSocio=" + numSocio
                 + ", tlf=" + tlf
-                + ", librosPrestados=" + librosPrestados
-                + ", estaSancionado=" + estaSancionado
+                + ", estaSancionado=" + (estaSancionado ? "Sí" : "No")
+                + "\n" + librosPrestadosStr.toString()
                 + '}';
     }
 
